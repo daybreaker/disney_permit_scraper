@@ -2,8 +2,15 @@ GEM
   remote: https://rubygems.org/
   specs:
     awesome_print (1.0.2)
+    capistrano (2.12.0)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     domain_name (0.5.3)
       unf (~> 0.0.3)
+    highline (1.6.13)
     mechanize (2.5.1)
       domain_name (~> 0.5, >= 0.5.1)
       mime-types (~> 1.17, >= 1.17.2)
@@ -15,6 +22,13 @@ GEM
     mime-types (1.19)
     net-http-digest_auth (1.2.1)
     net-http-persistent (2.7)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.5.2)
+    net-ssh-gateway (1.1.0)
+      net-ssh (>= 1.99.1)
     nokogiri (1.5.5)
     ntlm-http (0.1.1)
     rack (1.4.1)
@@ -35,6 +49,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  capistrano
   mechanize
   nokogiri
   sinatra
