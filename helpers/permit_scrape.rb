@@ -4,7 +4,7 @@ require "net/http"
 require "uri"
 require 'awesome_print'
 
-class PermitScrape
+module PermitScrape
   def get_permits(from,to)
     from ||= (Date.today - 1.day).strftime('%m/%d/%Y')
     to ||= Date.today.strftime('%m/%d/%Y')
@@ -46,4 +46,6 @@ class PermitScrape
     end
     results
   end
+  
+  module_function :get_permits
 end
