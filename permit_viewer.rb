@@ -5,6 +5,7 @@ require 'sinatra'
 require 'data_mapper'
 require 'logger'
 require 'mysql'
+require_relative 'lib/permit_scrape'
 
 #************ DB SETUP ************
 
@@ -37,11 +38,19 @@ DataMapper.finalize.auto_upgrade!
 class Permit
   include DataMapper::Resource
   property :id,         Serial
-  property :title,      String
+  property :document_id,String, :unique_index => true
+  property :type,       String
+  property :grantor,    String
+  property :grantee,    String
+  property :legal,      String
+  property :detail_url, String
+  property :node_id,    String
+  property :pdf_url,    String
+  property :status,     Flag[:new, :verified_bad, :verified_good, :unsure]
+  property :notes,      String
   property :created_at, DateTime
-  property :complete,   Boolean, :default=>false
-
-  validates_present :title
+  
+  
 end
 
 #********* END MODELS ***************
@@ -49,4 +58,9 @@ end
 
 get '/' do
   haml :index
+end
+
+get '/view' do
+  @permits = PermitScrape::get_permits('07/01/2012','07/15/2012')
+  haml :view
 end
