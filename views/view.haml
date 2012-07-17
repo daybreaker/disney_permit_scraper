@@ -1,1 +1,12 @@
-!=ap @permits
+%table
+  -@permits.each do |permit|
+    %tr
+      %td=permit.document_id
+      %td=permit.type
+      %td=permit.grantor
+      %td=permit.grantee
+      %td=permit.legal
+      %td=permit.node_id
+      %td
+        %a{:href => permit.pdf_url}
+          PDF

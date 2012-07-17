@@ -9,3 +9,4 @@ gem 'whenever', :require => false
 gem 'data_mapper'
 gem 'dm-mysql-adapter'
 gem 'mysql'
+gem 'haml'
