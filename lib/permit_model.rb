@@ -13,6 +13,7 @@ class Permit
   property :pdf_url,    Text
   property :status,     Flag[:new, :verified_bad, :verified_good, :unsure]
   property :notes,      Text
+  property :rec_date,   DateTime
   property :created_at, DateTime
     
 end

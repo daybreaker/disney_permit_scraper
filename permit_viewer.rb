@@ -6,6 +6,7 @@ require 'data_mapper'
 require 'logger'
 require 'mysql'
 require 'haml'
+require 'active_support'
 
 #************ DB SETUP ************
 
@@ -14,7 +15,7 @@ configure :development do
     :adapter  => 'mysql',
     :host     => 'localhost',
     :username => 'root' ,
-    :password => 'groovy',
+    :password => '',
     :database => 'permits_development'})  
 
 end
@@ -37,7 +38,21 @@ get '/' do
   haml :index
 end
 
-get '/view' do
-  @permits = PermitScrape.new.get_permits('07/01/2012','07/15/2012')
+get '/view/?:date_range?' do
+  if params[:date_range]
+    from, to = params[:date_range].split('%7C')
+    from = Date.strptime(from,'%m-%d-%Y').strftime('%m/%d/%Y')
+    to = Date.strptime(to,'%m-%d-%Y').strftime('%m/%d/%Y')
+  else
+    from = Date.today
+    to =  Date.today
+  end
+  
+  @permits = Permit.all(:rec_date => (from..to))
   haml :view
 end
+
+get '/:fm/:fd/:fy/:tm/:td/:ty' do
+  PermitScrape.new.get_permits("#{params[:fm]}/#{params[:fd]}/#{params[:fy]}","#{params[:tm]}/#{params[:td]}/#{params[:ty]}")
+end
+
