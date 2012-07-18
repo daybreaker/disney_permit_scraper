@@ -15,7 +15,7 @@ configure :development do
     :adapter  => 'mysql',
     :host     => 'localhost',
     :username => 'root' ,
-    :password => '',
+    :password => 'groovy',
     :database => 'permits_development'})  
 
 end
@@ -38,17 +38,10 @@ get '/' do
   haml :index
 end
 
-get '/view/?:date_range?' do
-  if params[:date_range]
-    from, to = params[:date_range].split('%7C')
-    from = Date.strptime(from,'%m-%d-%Y').strftime('%m/%d/%Y')
-    to = Date.strptime(to,'%m-%d-%Y').strftime('%m/%d/%Y')
-  else
-    from = Date.today
-    to =  Date.today
-  end
-  
-  @permits = Permit.all(:rec_date => (from..to))
+post '/view' do
+  from = DateTime.strptime(params[:from_date], "%m/%d/%Y")
+  to = DateTime.strptime(params[:to_date], "%m/%d/%Y")
+  @permits = Permit.all(:rec_date => (from..to), :order => [ :rec_date.desc ])
   haml :view
 end
 

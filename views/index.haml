@@ -1,2 +1,21 @@
 #main
-  Hey Yo	
+  %form{:action => 'view', :method => :post, :id => "form1"}
+    %fieldset
+      %p.first
+        %label{:for => 'from_date'}
+          From:
+        %input{:type => 'text', :name => 'from_date', :size => 10, :placeholder => 'mm/dd/yyyy'}
+      %p
+        %label{:for => 'to_date'}
+          To:
+        %input{:type => 'text', :name => 'to_date', :size => 10, :placeholder => 'mm/dd/yyyy'}
+    %fieldset
+      %h2
+        Orange County Comptroller
+        %br
+        Permit Viewer
+      %h3
+        Walt Disney World
+    %p.submit
+      %button{:type => 'submit'}
+        Search
