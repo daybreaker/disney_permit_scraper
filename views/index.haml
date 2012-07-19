@@ -4,11 +4,11 @@
       %p.first
         %label{:for => 'from_date'}
           From:
-        %input{:type => 'text', :name => 'from_date', :size => 10, :placeholder => 'mm/dd/yyyy'}
+        %input{:type => 'text', :name => 'from_date', :size => 10, :placeholder => 'mm/dd/yyyy', :class => 'datepicker' }
       %p
         %label{:for => 'to_date'}
           To:
-        %input{:type => 'text', :name => 'to_date', :size => 10, :placeholder => 'mm/dd/yyyy'}
+        %input{:type => 'text', :name => 'to_date', :size => 10, :placeholder => 'mm/dd/yyyy', :class => 'datepicker' }
     %fieldset
       %h2
         Orange County Comptroller
@@ -19,3 +19,9 @@
     %p.submit
       %button{:type => 'submit'}
         Search
+        
+        
+:javascript
+  $(function() {
+    $( ".datepicker" ).datepicker({maxDate: 0});
+  });

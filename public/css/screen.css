@@ -108,7 +108,8 @@ li{
 		width:252px;
 		border:1px solid #ddd;
 		background:#fff url(../images/form1/form_input.gif) repeat-x;
-		padding:3px;
+		padding:5px;
+		display:inline;
 		}		
 	#form1 textarea{
 		height:125px;
@@ -148,4 +149,8 @@ li{
 span.label{
   font-weight: bold;
   margin: 0 5px;
+}
+
+#form1 input.datepicker{
+  background: url(../images/calendar_icon.gif) no-repeat 97% 50%;
 }
