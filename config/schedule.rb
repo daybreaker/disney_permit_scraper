@@ -13,8 +13,8 @@ every :hour do
   fd = from.strftime('%d')
   fy = from.strftime('%Y')
   to = Date.today
-  tm = from.strftime('%m')
-  td = from.strftime('%d')
-  ty = from.strftime('%Y')
+  tm = to.strftime('%m')
+  td = to.strftime('%d')
+  ty = to.strftime('%Y')
   command "curl 'http://permits.nerdbrigade.org/#{fm}/#{fd}/#{fy}/#{tm}/#{td}/#{ty}'"
 end
