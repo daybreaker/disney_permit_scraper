@@ -11,7 +11,7 @@ class Permit
   property :detail_url, Text
   property :node_id,    String
   property :pdf_url,    Text
-  property :status,     Flag[:new, :verified_bad, :verified_good, :unsure]
+  property :status,     Enum[:new, :bad, :good, :unsure]
   property :notes,      Text
   property :rec_date,   DateTime
   property :created_at, DateTime

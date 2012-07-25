@@ -45,6 +45,7 @@ class PermitScrape
         :grantee => row.first.css('td')[3].at_css('b').next_sibling(),
         :legal => row.first.css('td')[4].at_css('b').next_sibling(),
         :node_id => node_id,
+        :status => :new,
         :pdf_url => eagleweb_base + "downloads/#{link_text[1]}.pdf?id=#{node_id}.A0&parent=#{node_id}"
       })
     end

@@ -11,6 +11,9 @@
         Type: 
       =permit.type.gsub(/&amp;nbsp/,'')
       %span.label
+        Status:
+      =permit.status
+      %span.label
         %a{:href => permit.pdf_url, :target => :blank}
           View PDF
     .row
