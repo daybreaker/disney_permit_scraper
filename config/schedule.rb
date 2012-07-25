@@ -8,5 +8,13 @@
 set :output, "/var/www/disney_permit_scraper/shared/log/cron_log.log"
 
 every :hour do
-  command "ruby /var/www/disney_permit_scraper/current/get_recent_permits.rb"
+  from = Date.today - 1
+  fm = from.strftime('%m')
+  fd = from.strftime('%d')
+  fy = from.strftime('%Y')
+  to = Date.today
+  tm = from.strftime('%m')
+  td = from.strftime('%d')
+  ty = from.strftime('%Y')
+  command "curl 'http://permits.nerdbrigade.org/#{fm}/#{fd}/#{fy}/#{tm}/#{td}/#{ty}'"
 end
