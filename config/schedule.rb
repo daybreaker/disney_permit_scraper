@@ -8,13 +8,5 @@
 set :output, "/var/www/disney_permit_scraper/shared/log/cron_log.log"
 
 every :hour do
-  from = Date.today - 1
-  fm = from.strftime('%m')
-  fd = from.strftime('%d')
-  fy = from.strftime('%Y')
-  to = Date.today
-  tm = to.strftime('%m')
-  td = to.strftime('%d')
-  ty = to.strftime('%Y')
-  command "curl 'http://permits.nerdbrigade.org/#{fm}/#{fd}/#{fy}/#{tm}/#{td}/#{ty}'"
+
 end
