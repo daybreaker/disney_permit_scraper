@@ -8,5 +8,5 @@
 set :output, "/var/www/disney_permit_scraper/shared/log/cron_log.log"
 
 every :hour do
-
+  rake "get_current_day"
 end
