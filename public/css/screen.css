@@ -154,3 +154,9 @@ span.label{
 #form1 input.datepicker{
   background: url(../images/calendar_icon.gif) no-repeat 97% 50%;
 }
+
+#pdf{
+  display:none;
+  width: 900px;
+  height: 100%;
+}

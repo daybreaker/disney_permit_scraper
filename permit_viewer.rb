@@ -15,7 +15,7 @@ configure :development do
     :adapter  => 'mysql',
     :host     => 'localhost',
     :username => 'root' ,
-    :password => '',
+    :password => 'groovy!2',
     :database => 'permits_development'})  
 
 end

@@ -1,3 +1,34 @@
+:javascript
+  $(function(){
+    $(".pdf_link").on('click',function(){
+      var msg;
+      $("#pdf").className = "embedded";  //Style the DIV
+
+        var pObj = new PDFObject({ 
+
+        url: $(this).attr('href'),
+        id: "myPDF",
+
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          view: "FitV"
+        }
+      });
+      
+      var htmlObj = pObj.embed("pdf");	//Returns a reference to the HTML <object> or null if unsuccessful
+      $.fancybox.open({
+          href: '#pdf',
+          autoSize: true,
+          scrolling: 'no'
+        });
+      return false;
+    });
+
+  });
+
+
 -@permits.each do |permit|
   .permit
     .row
@@ -14,7 +45,7 @@
         Status:
       =permit.status
       %span.label
-        %a{:href => permit.pdf_url, :target => :blank}
+        %a{:href => permit.pdf_url, :class=> 'pdf_link', :target => :blank}
           View PDF
     .row
       %span.label
@@ -28,3 +59,5 @@
       %span.label
         Legal: 
       =permit.legal.gsub(/&amp;nbsp/,'')
+
+#pdf
