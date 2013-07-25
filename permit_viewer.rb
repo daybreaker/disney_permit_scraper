@@ -47,5 +47,6 @@ end
 
 get '/:fm/:fd/:fy/:tm/:td/:ty' do
   PermitScrape.new.get_permits("#{params[:fm]}/#{params[:fd]}/#{params[:fy]}","#{params[:tm]}/#{params[:td]}/#{params[:ty]}")
+  "Permits Updated"
 end
 
