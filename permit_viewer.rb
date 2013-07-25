@@ -35,11 +35,11 @@ require_relative 'lib/permit_scrape'
 require_relative 'lib/permit_model'
 
 get '/' do
-  response.set_cookie("true", {
+  response.set_cookie("isLoggedInAsPublic",
+    :value => true,
     :domain => "or.occompt.com",
     :path => "/recorder",
-    :expires => Date.new
-  })
+    :expires => Date.new(2020,1,1))
 
   haml :index
 end
