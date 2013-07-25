@@ -39,7 +39,8 @@ get '/' do
     :value => true,
     :domain => "or.occompt.com",
     :path => "/recorder",
-    :expires => Date.new(2020,1,1))
+    :expires => Time.new + (60*60*24*365) )
+  
 
   haml :index
 end
