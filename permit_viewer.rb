@@ -35,6 +35,12 @@ require_relative 'lib/permit_scrape'
 require_relative 'lib/permit_model'
 
 get '/' do
+  set_cookie("true", {
+    :domain => "or.occompt.com",
+    :path => "/recorder",
+    :expires => Date.new
+  })
+
   haml :index
 end
 
