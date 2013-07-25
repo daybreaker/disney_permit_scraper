@@ -36,7 +36,7 @@ require_relative 'lib/permit_model'
 
 get '/' do
   response.set_cookie("isLoggedInAsPublic",
-    :value => true,
+    :value => "true",
     :domain => "or.occompt.com",
     :path => "/recorder",
     :expires => Time.new + (60*60*24*365) )
